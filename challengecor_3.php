@@ -78,7 +78,7 @@ echo $cycle1->wheel_details()  ;
 echo "<hr/>";
 
 echo "cycle two features" ."<br>";
-//i placed the setter for private weight_kg at the top so it can work with other methods below. since the methods below depends on the setter above.
+//i placed the setter for private weight_kg at the top so it can work with other methods below. since the methods below depends on the setter above.git    
 $cycle2->set_weight_lbs(2) . "<br>"; 
 echo $cycle2->weight_lbs() . "<br>";
 echo $cycle2->weight_kg() . "<br>";
