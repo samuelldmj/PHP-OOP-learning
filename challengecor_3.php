@@ -46,9 +46,11 @@ public function weight_lbs() {
 class Unicycle extends Bicycle{
 
     protected $wheels = 1;  
-    // public function bug_test(){
 
-    // }
+    public function bug_test(){
+        //trying to check if the subclass property truely inheritted the private property variable
+        return $this->weight_kg;
+    }
 }
 
 //created two cycle instances or object.
@@ -84,7 +86,13 @@ echo $cycle2->weight_lbs() . "<br>";
 echo $cycle2->weight_kg() . "<br>";
 echo $cycle2->wheel_details() . "<br>";
 
+echo "<hr/>";
+//Bug test for weight_kg...there is a bug here, i made weight_kg a private property, but it is being inherited by the subclass
+//this is because the methods used by the bicycle class is a public property, so the subclass look to inherit it by default.
 
+$cycle2->set_weight_kg(1);
+echo $cycle2->weight_lbs() . "<br>";
+echo $cycle2->weight_kg() . "<br>";
 
 
 
