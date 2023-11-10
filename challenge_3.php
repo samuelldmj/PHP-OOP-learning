@@ -26,6 +26,7 @@ public function Name() {
     return $this->brand. "<br>". $this->year . "<br>". $this->model;
 }
 
+
 public function wheel_details(){
           
     return $this->wheels= "Bicycle has 2 wheels";
