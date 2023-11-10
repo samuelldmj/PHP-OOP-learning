@@ -174,6 +174,7 @@ class Animals extends Creatures {
         return $this->hands;
     }
 
+    
 }
 
 class spiritBeings extends Human {
