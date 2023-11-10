@@ -3,6 +3,7 @@
 class Sofa {
   protected static $identity = 'Sofa class';
 
+  //to make the subclass work dynamically or output at runtime use the "static" keyword to reference it. e.g static::$property or methods.
   public static function identity_test() {
     echo 'self: ' . self::$identity . "<br />";
     echo 'static: ' . static::$identity . "<br />";

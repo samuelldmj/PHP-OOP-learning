@@ -14,10 +14,18 @@ class Student{
     public static function add_student(){
         self::$total_students++;
     }
+
+    
 }
+
+//trying to use insatnce to get values from a static property
+// $score = new Student;
+// echo $score->grades[1]; you can't access static property by instance.
+
 
 echo Student::$grades[1] . "<br>";
 echo Student::motto() . "<br>";
+
 
 echo Student::count() . "<br>";
 Student::add_student()  ;
@@ -27,8 +35,14 @@ echo Student::count() . "<br>";
 
 //static properties and methods are inherited
 class partTimestudent extends Student{ 
+    public static function call_student(){
+        return self::$grades[3];
+    }
+
 }
 
+echo partTimestudent::call_student();
+echo "<hr>"; 
 
 echo partTimestudent::$grades[1] . "<br>";
 echo partTimestudent::motto() . "<br>";
