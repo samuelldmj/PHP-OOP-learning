@@ -1,0 +1,146 @@
+<?php
+
+
+
+class Bicycle{
+
+    //created some properties here
+    public static $instance_count = 0;
+
+public $brand;
+public $model;
+public $description; 
+public $category;
+public $year;
+private static $weight_kg = 0.0;
+protected static $wheels = 2;
+
+public const CATEGORIES = ['road', 'mountain', 'hybrid', 'cruiser', 'city', 'Bmx'] ;
+
+
+
+//created some methods
+
+public function Name() {
+    return $this->brand. "<br>". $this->year . "<br>". $this->model;
+}
+
+public static function wheel_details(){
+        $wheel_strings = static::$wheels == 1 ? "1 wheel" : static::$wheels . "  wheels";
+        return "it has " . $wheel_strings . " . ";
+} 
+
+public  static function set_weight_kg($value){
+    Bicycle::$weight_kg = floatval($value) ; 
+}
+
+public static function weight_kg(){
+    return Bicycle::$weight_kg . " kg";
+}
+
+
+public function set_weight_lbs($value){
+    $this->weight_kg = floatval($value) / 2.2046226218 ;
+}
+
+public function weight_lbs() {
+    $weight_lbs = floatval($this->weight_kg) * 2.2046226218 ;
+    return $weight_lbs . " lbs";
+}
+
+public static function Create(){
+    self::$instance_count++;
+    $name_class = get_called_class();
+    $new_ins = new $name_class;
+    return $new_ins;
+
+}
+
+}
+
+class Unicycle extends Bicycle{
+
+    protected static $wheels = 1;  
+
+    // public function bug_test(){
+    //     //trying to check if the subclass property truely inheritted the private property variable
+    //     return $this->weight_kg;
+    // }
+
+    public static function set_weight_kg($value)
+    {
+        echo "The weight of ";
+        parent::$weight_kg = floatval($value) ; 
+        echo "is light";
+    }
+}
+
+// created two cycle instances or object.
+$cycle1 = new Bicycle;
+$cycle2 = new Unicycle;
+
+// referencing the attributes/properties with the instances here and inserting a value.
+$cycle1->brand = "Bicycle_1_brand: suzuki";
+$cycle1->year = "Bicycle_1_year: " . "(" . 2022 .")";
+$cycle1->model= "Bicycle_1_model: Flash breeze";
+$cycle1->description= "Used bike";
+
+// //referencing the attributes/properties with the instances here and inserting a value.
+// $cycle2->brand = "Unicycle_2_brand: yamaha";
+// $cycle2->year = "Unicycle_2_year: " . "(" . 2023 .")";
+// $cycle2->model= "Unicycle_2_model: rough spike";
+// $cycle2->description= "New bike";
+
+// //i am outputing the properties here calling the name methods and as well as outputting the weight_kg using the weight methods.
+// echo "cycle one features" ."<br>";
+// //i placed the setter for private weight_kg at the top so it can work with other methods below.
+// $cycle1->set_weight_kg(1) . "<br>";
+// echo $cycle1->weight_lbs() . "<br>";
+// echo $cycle1->weight_kg() . "<br>" ;   
+// echo $cycle1->wheel_details()  ;
+
+// echo "<hr/>";
+
+// echo "cycle two features" ."<br>";
+// //i placed the setter for private weight_kg at the top so it can work with other methods below. since the methods below depends on the setter above.git    
+// $cycle2->set_weight_lbs(2) . "<br>"; 
+// echo $cycle2->weight_lbs() . "<br>";
+// echo $cycle2->weight_kg() . "<br>";
+// echo $cycle2->wheel_details() . "<br>";
+
+// echo "<hr/>";
+// //Bug test for weight_kg...there is a bug here, i made weight_kg a private property, but it is being inherited by the subclass
+// //this is because the methods used by the bicycle class is a public property, so the subclass look to inherit it by default.
+
+// $cycle2->set_weight_kg(1);
+// echo $cycle2->weight_lbs() . "<br>";
+// echo $cycle2->weight_kg() . "<br>";
+
+
+
+// echo Bicycle::wheel_details() . "<br>";
+// echo Unicycle::wheel_details()  . "<br>";
+// echo "<hr>";
+//  Unicycle::set_weight_kg(2) . "<br>";
+//  echo Unicycle::weight_kg();
+
+
+echo "Bicycle count " . Bicycle::$instance_count . "<br>";
+echo "Unicycle count " . Unicycle::$instance_count . "<br>";
+
+ Bicycle::Create();
+ Unicycle::Create();
+
+echo "Bicycle count " . Bicycle::$instance_count . "<br>";
+echo "Unicycle count " . Unicycle::$instance_count . "<br>";
+
+echo "<hr>";
+echo "Categories: " . implode(', ' , Bicycle::CATEGORIES) . "<br>" ;
+$cycle1->category = Bicycle::CATEGORIES[0];
+echo "Category: " . $cycle1->category . "<br>";
+
+echo "<hr>";
+
+
+
+?>
