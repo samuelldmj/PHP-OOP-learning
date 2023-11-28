@@ -70,10 +70,79 @@
 // }
 
 
+
 //practise 2
+//meaning of timestamp: it is a time in seconds from 1st of january 1970, it can be formatted to a date later.
+//strtotime function output timestamps
+
 //we want to calculate the age of person in days
 //we will get a date and then print out the numbers of days since birthday
 //for example there are 10136 days since my birthday 
+
+//solution 1
+// $b_d = '1997-03-27';
+// $t_d = date(format: 'Y-m-d');
+// $diff = strtotime($t_d) - strtotime($b_d);
+// $cal = (60*60*24);
+// $nomOfdays = $diff / $cal;
+// echo "there are $nomOfdays days since my $b_d";
+
+
+//practise 3
+//reading and writing files
+
+//To open the files and reading a file. r is the flag to read lines
+// $file = fopen("./example.txt", "r");
+
+
+//files aRE READ line by line. the function to read a line is fgets()
+//when it get to the end of a line, an attempt to read another which is not available will return false
+// $first_line = fgets($file);
+// $second_line = fgets($file);
+
+//to read through multiple lines, we use loop.
+// $file = fopen("./example.txt", "r");
+// $line = fgets($file);
+// while ($file != false) {
+//     echo $line;
+//     $line = fgets($file);
+// }
+// fclose($file);
+
+// writing a file
+//you can write multiple lines using fwrite multiple times, to break lines
+//use \n or php_Eol func
+// $file = fopen("./example.txt", "w");
+// echo fwrite($file, "Hello world, i'm samuel akin." . PHP_EOL) ;
+// echo fwrite($file, "Hello world, i'm dan akin." . PHP_EOL) ;
+// fclose($file);
+
+//closing file
+//do not forget to close your file
+// fclose($file);
+
+
+//working with csv
+// $file = fopen("./example.txt", "r");
+// //you pass four argument here: the file, the lenght(how much char you want to view), seperator(it can be comma or tab depending on the files), 
+// //below will output array, with each item represent a column
+// $line = fgetcsv($file);
+// while($line != false) {
+//     //the line is an array
+//     //obtaining the first row
+//     $id = $line[0];
+//     //obtaining data on the same in the first line
+//     $name = $line[1];
+//     echo "the id for the website with the name of $name is $id" . "<br>";
+//     $line = fgetcsv($file);
+// }
+// fclose($file);
+
+//writing in csv
+//below will output array, with each item represent a column
+// $file = fopen("./example.txt", "a");
+// $line = fputcsv($file, ["6", "github"]);
+// fclose($file);
 
 
 
