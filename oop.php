@@ -111,11 +111,12 @@
 
 // writing a file
 //you can write multiple lines using fwrite multiple times, to break lines
+//use the "w" flag to write to a new file
 //use \n or php_Eol func
-// $file = fopen("./example.txt", "w");
-// echo fwrite($file, "Hello world, i'm samuel akin." . PHP_EOL) ;
-// echo fwrite($file, "Hello world, i'm dan akin." . PHP_EOL) ;
-// fclose($file);
+$file = fopen("./example.php", "w");
+echo fwrite($file, "Hello world, i'm samuel akin." . PHP_EOL) ;
+echo fwrite($file, "Hello world, i'm dan akin." . PHP_EOL) ;
+fclose($file);
 
 //closing file
 //do not forget to close your file
@@ -140,9 +141,94 @@
 
 //writing in csv
 //below will output array, with each item represent a column
+//use the "a" flag to add to an existing file
 // $file = fopen("./example.txt", "a");
 // $line = fputcsv($file, ["6", "github"]);
 // fclose($file);
+
+//JSON AND XML
+
+//example of JSON 
+// echo "<pre>";
+// $json = '{
+//     "data": {
+//       "linkedin ": "https://www.linkedin.com/in/akinnuoye-samuel97/",
+//       "twitter ": "https://www.x.com/in/akinnuoye-samuel97/",
+//       "github ": "https://www.github.com/in/akinnuoye-samuel97/",
+//       "facebook ": "https://www.linkedin.com/in/akinnuoye-samuel97/"
+//     }
+//   }';
+//   echo "<pre>";
+
+//reading JSON
+//it takes 2 arguments the file and a boolean data type, which try to tell php if you want to 
+//parse json as an associative array or not.
+// $array = json_decode($json, true);
+// $data = $array['data'];
+// //to access each element as a key-vlaue array
+// foreach($data as $key => $value){
+//     echo "social media name  $key and link to follow $value " . "<br>";
+// }
+
+//writing JSON
+// echo "<pre>";
+// $array = '{
+//     "data": {
+//       "linkedin ": "https://www.linkedin.com/in/akinnuoye-samuel97/",
+//       "twitter ": "https://www.x.com/in/akinnuoye-samuel97/",
+//       "github ": "https://www.github.com/in/akinnuoye-samuel97/",
+//       "facebook ": "https://www.linkedin.com/in/akinnuoye-samuel97/"
+//     }
+//   }';
+//   echo "<pre>";
+// $json = json_encode($array);
+// echo $json;
+
+
+
+//xml files
+//there are 2 ways we can read php
+//the tags in the html are called a nodes
+//1) DOM document
+//2) simpleXmlelement
+$xml = '<?xml version="1.0" encoding= "UTF-8" ?>
+<accounts>
+<account type="twitter">https://www.x.com/in/akinnuoye-samuel97/</account>
+<account type="Linkedin">https://www.linkedin.com/in/akinnuoye-samuel97/</account>
+<account type="Github">https://www.github.com/in/akinnuoye-samuel97/</account>
+<account type="facebook">https://www.facebook.com/in/akinnuoye-samuel97/</account>
+</accounts>';
+
+//using DOM
+//we need to create an object first
+// $dom = new DOMDocument();
+// //then load the xml info, could be a file or from api
+// $dom->loadXML($xml);
+// //we then get the tag we to access 
+// $accounts = $dom->getElementsByTagName(qualifiedName: 'account');
+// //we use a foreach loop to access each nodes in the account tag
+// foreach( $accounts as $account ) {
+//     $name = $account->getAttribute('type');
+//     $link = $account->nodeValue;
+//     echo "connect with me on $name here is the link $link" . "<br>";
+// }
+
+//parsing using simplexmlelement method
+// $accounts = new  SimpleXMLElement( $xml );
+// foreach ( $accounts as $account ) {
+//     $name = $account['type'];
+//     $link = $account;
+//     echo "connect with me on $name here is the link $link" . "<br>";
+// };
+
+//writing in xml
+// $accounts = new SimpleXMLElement('<?xml version="1.0" encoding= "UTF-8" ?><accounts></accounts>');
+// $accounts->addChild('account','https://www.x.com/in/akinnuoye-samuel97/')->addAttribute('type', 'Twitter');
+
+// //saving xml as string
+// $myfinal =  $accounts->asXML();
+// echo $myfinal;
+
 
 
 
