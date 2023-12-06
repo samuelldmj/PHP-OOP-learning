@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student form</title>
+    <style>
+        h1 {
+            background-color: white;
+            font-family: "Courier New", Courier, monospace;
+            align-self: center;
+            text-align: center;
+            color: rebeccapurple;
+        }
+
+        p {
+            font-family: "Courier New", Courier, monospace;
+            color: whitesmoke;
+        }
+
+        form {
+            font-family: cursive;
+            color: whitesmoke;
+        }
+
+        body {
+            background-color: rgb(44, 4, 82);
+        }
+    </style>
+</head>
+
+<!-- FORM validation -->
+<body>
+    <h1>
+        <b>STUDENT APPLICATION FORM
+            <hr>
+        </b>
+    </h1>
+    <form action="http://localhost/tuts/" ,="" method="post" target="_blank">
+        <label for="name">Name <sup style="color: red">*</sup></label><br>
+        <input type="text" ,="" style="width: 1100px; size: 200" id="name" name="name" placeholder="Anthony Martial" value="Akinnuoye Samuel"><br><br>
+        <!--Email-->
+        <label for="mail">Email</label><br>
+        <input type="text" style="width: 1100px; size: 200" id="mail" name="mail" placeholder="samuelldmj5gmail.com" value="samuelldmj5@gmail.com"><br><br>
+        <label for="address">Address</label><br>
+        <input type="text" style="width: 1100px; size: 00" id="address" name="address" value="93/102 omolore ademulegun ajilo ondo state"><br><br>
+        <label for="pnumber">Phone Number</label><br>
+        <input type="text" style="width: 1100px; size: 200" id="pnumber" name="padding-bottom; pnumber" value="08022233344"><br><br>
+
+        <!--Gender-->
+        <label for="gen">Gender</label><br>
+        <input type="radio" id="gen" name="gender" value="Male">Male <br>
+        <input type="radio" id="gen" name="gender"  value="Female" checked="checked">Female <br><br>
+        
+        <!--Student level-->
+        <label for="lvos">Level of student</label><br>
+        <select name="lvos" id="lvos">
+            <option value="100L" selected="selected">100 Level</option>
+            <option value="200L">200 Level</option>
+            <option value="300L">300 Level</option>
+            <option value="400L">400 Level</option>
+        </select><br><br><br>
+        <!--submit button-->
+        <input type="submit" value="Submit" style="text-align: right; color: black; background-color: pink">
+    </form>
+
+
+</body></html>

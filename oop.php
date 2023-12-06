@@ -229,6 +229,16 @@ $xml = '<?xml version="1.0" encoding= "UTF-8" ?>
 // $myfinal =  $accounts->asXML();
 // echo $myfinal;
 
+//function
+//function has a name, it should be defined in a code block inside a curly bracket.
+//arguments data types can be defined
+
+function test(int $a, int $b){
+    echo $a + $b;
+}
+test();
+
+
 
 
 
