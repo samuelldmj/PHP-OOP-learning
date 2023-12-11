@@ -1,12 +1,10 @@
 
 
+<!-- create a contact form that get name, email and text -->
+<!-- store the data and time of contact as a json format -->
 
-
-
-
-
-
-
+<?php 
+include("example/formH.php");  ?>
 
 
 
@@ -75,15 +73,14 @@
 <body>
     <div class= "card">
         <p class = "banner3_div_p" > Contact Form</p>
-    <form action="">
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Email">
+    <form action="example/formH.php" method="post">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="email" placeholder="Email">
 
-        <textarea placeholder="Message" rows="5" >  
+        <textarea name="message" rows="5" placeholder="Message" >  
         </textarea><br><br>
-
         <div class="btn">
-        <a href="#" class="banner3_btn" > Send</a>
+        <input type="submit" value="Send" name="submit" class="banner3_btn" >
         </div>
     </form> 
     </div>
