@@ -104,4 +104,12 @@ Hello world, i'm dan akin. -->
 // echo var_dump(!empty($name)); 
 
 
+
+
+
+
+
+
+
+
 ?>
