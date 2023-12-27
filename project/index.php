@@ -12,6 +12,10 @@ RewriteRule ^(.+)$ index.php [QSA, L]
 */
 
 
+//solution
+// echo $_SERVER['RQUEST_URI'];
+require_once "/router.php";
+Router::handle();
 
 
 
